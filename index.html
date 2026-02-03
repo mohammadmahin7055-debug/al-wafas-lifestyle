@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Al-Wafa's Lifestyle | Premium</title>
+    <title>Al-Wafa's Lifestyle | Premium Collection</title>
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         :root {
@@ -13,10 +13,10 @@
             --white: #ffffff;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Georgia', serif; }
-        body { background-color: var(--black); color: var(--white); scroll-behavior: smooth; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', serif; }
+        body { background-color: var(--black); color: var(--white); scroll-behavior: smooth; overflow-x: hidden; }
 
-        /* Initial Section with Logo */
+        /* Step 1: Logo Section */
         .intro-section {
             height: 100vh;
             display: flex;
@@ -27,10 +27,10 @@
         }
 
         .profile-pic {
-            width: 200px;
-            height: 200px;
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
-            border: 4px solid var(--gold);
+            border: 3px solid var(--gold);
             padding: 5px;
             object-fit: cover;
             box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
@@ -38,22 +38,21 @@
         }
 
         @keyframes pulse {
-            0% { transform: scale(1); box-shadow: 0 0 20px rgba(212, 175, 55, 0.3); }
-            50% { transform: scale(1.05); box-shadow: 0 0 40px rgba(212, 175, 55, 0.6); }
-            100% { transform: scale(1); box-shadow: 0 0 20px rgba(212, 175, 55, 0.3); }
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
 
-        .scroll-down {
-            margin-top: 30px;
+        .scroll-hint {
+            margin-top: 20px;
             color: var(--gold);
-            font-size: 0.9rem;
-            letter-spacing: 3px;
+            letter-spacing: 4px;
+            font-size: 0.8rem;
             animation: bounce 2s infinite;
         }
 
-        @keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(-10px);} 60% {transform: translateY(-5px);} }
+        @keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(-10px);} }
 
-        /* Animated Title Section */
+        /* Step 2: Brand Name Animation */
         .brand-section {
             padding: 100px 5%;
             text-align: center;
@@ -62,7 +61,7 @@
         @keyframes shine { 0% { background-position: -100%; } 100% { background-position: 200%; } }
 
         .animated-title {
-            font-size: 3.5rem;
+            font-size: clamp(2rem, 8vw, 3.5rem);
             font-weight: bold;
             background: linear-gradient(90deg, #856404, #D4AF37, #fff, #D4AF37, #856404);
             background-size: 200% auto;
@@ -71,65 +70,78 @@
             background-clip: text;
             animation: shine 3s linear infinite;
             text-transform: uppercase;
-            letter-spacing: 5px;
+            letter-spacing: 3px;
         }
 
-        /* Product Section */
-        .product-section {
-            padding: 50px 5%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        /* Step 3: Product Grid */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 20px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .product-card {
             background: #111;
-            border: 1px solid var(--gold);
-            border-radius: 20px;
+            border: 1px solid #333;
+            border-radius: 15px;
             overflow: hidden;
-            width: 100%;
-            max-width: 450px;
-            margin-bottom: 40px;
+            transition: 0.3s;
+            text-align: center;
         }
+
+        .product-card:hover { border-color: var(--gold); transform: translateY(-5px); }
 
         .product-img {
             width: 100%;
-            height: auto;
-            display: block;
-            border-bottom: 1px solid var(--gold);
+            height: 350px;
+            object-fit: cover;
+            border-bottom: 1px solid #222;
         }
 
-        /* Form Styling */
+        .product-info { padding: 20px; }
+        .product-info h3 { color: var(--gold); margin-bottom: 10px; }
+        .price { font-size: 1.2rem; font-weight: bold; }
+
+        /* Order Form Area */
+        .order-container {
+            padding: 60px 5%;
+            display: flex;
+            justify-content: center;
+        }
+
         .order-box {
             background: #151515;
             padding: 30px;
             border-radius: 20px;
             width: 100%;
-            max-width: 450px;
-            border: 1px solid #333;
+            max-width: 500px;
+            border: 1px solid var(--gold);
         }
 
         .form-input {
             width: 100%;
-            padding: 15px;
+            padding: 12px;
             margin: 10px 0;
             background: #000;
-            border: 1px solid #444;
+            border: 1px solid #333;
             color: white;
-            border-radius: 10px;
+            border-radius: 8px;
         }
 
         .order-btn {
             width: 100%;
-            padding: 18px;
+            padding: 15px;
             background: var(--gold);
             color: #000;
             border: none;
-            border-radius: 10px;
+            border-radius: 8px;
             font-weight: bold;
             font-size: 1.1rem;
             cursor: pointer;
-            margin-top: 20px;
+            margin-top: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -138,80 +150,103 @@
 
         footer {
             text-align: center;
-            padding: 60px 20px;
+            padding: 50px;
             background: #050505;
             border-top: 1px solid #222;
+            font-size: 0.9rem;
+            color: #777;
         }
     </style>
 </head>
 <body>
 
     <section class="intro-section">
-        <img src="https://i.ibb.co.com/Jjk98Fmf/image.png" alt="Profile" class="profile-pic">
-        <div class="scroll-down">SCROLL DOWN</div>
+        <img src="https://i.ibb.co.com/Jjk98Fmf/image.png" alt="Al-Wafa Logo" class="profile-pic">
+        <div class="scroll-hint">SCROLL TO EXPLORE</div>
     </section>
 
     <section class="brand-section">
         <h1 class="animated-title">Al-Wafa's Lifestyle</h1>
-        <p style="color: #888; margin-top: 10px;">Agrabad, Southland Centre (3rd Floor)</p>
+        <p style="color: #666; margin-top: 15px;">Agrabad, Southland Centre (3rd Floor), Chattogram</p>
     </section>
 
-    <section class="product-section">
+    <div class="product-grid">
         <div class="product-card">
             <img src="https://i.ibb.co.com/rKwcrN0s/image.png" alt="Q/S by Oliver" class="product-img">
-            <div style="padding: 20px; text-align: center;">
-                <h2 style="color: var(--gold);">Q/S by Oliver</h2>
-                <p style="font-size: 1.4rem; margin: 10px 0;">1500/- Taka</p>
+            <div class="product-info">
+                <h3>Q/S by Oliver</h3>
+                <p class="price">1500/- Taka</p>
             </div>
         </div>
 
+        <div class="product-card">
+            <img src="https://i.ibb.co.com/tMVDTq4m/image.png" alt="Thermatec Vest" class="product-img">
+            <div class="product-info">
+                <h3>Thermatec (Vest)</h3>
+                <p class="price">1200/- Taka</p>
+            </div>
+        </div>
+    </div>
+
+    <section class="order-container">
         <div class="order-box">
-            <h3 style="color: var(--gold); text-align: center; margin-bottom: 15px;">Order Form</h3>
-            <input type="text" id="name" class="form-input" placeholder="Your Full Name">
-            <input type="tel" id="phone" class="form-input" placeholder="Phone Number">
-            <textarea id="address" class="form-input" rows="3" placeholder="Full Address"></textarea>
-            <select id="size" class="form-input">
+            <h2 style="color: var(--gold); text-align: center; margin-bottom: 20px;">Place Your Order</h2>
+            
+            <label style="font-size: 0.8rem; color: #888;">Select Product</label>
+            <select id="prodSelect" class="form-input">
+                <option value="Q/S by Oliver (1500 TK)">Q/S by Oliver - 1500/-</option>
+                <option value="Thermatec Vest (1200 TK)">Thermatec (Vest) - 1200/-</option>
+            </select>
+
+            <input type="text" id="custName" class="form-input" placeholder="Your Full Name">
+            <input type="tel" id="custPhone" class="form-input" placeholder="WhatsApp Number">
+            <textarea id="custAddr" class="form-input" rows="3" placeholder="Full Delivery Address"></textarea>
+            
+            <select id="custSize" class="form-input">
                 <option>Size: M</option>
                 <option>Size: L</option>
                 <option>Size: XL</option>
                 <option>Size: XXL</option>
             </select>
-            <button class="order-btn" onclick="orderNow()">
-                <i data-lucide="shopping-cart"></i> PLACE ORDER VIA WHATSAPP
+
+            <button class="order-btn" onclick="sendOrder()">
+                <i data-lucide="send"></i> ORDER ON WHATSAPP
             </button>
         </div>
     </section>
 
     <footer>
-        <p style="color: var(--gold);">Al-Wafa's Lifestyle</p>
-        <p style="color: #666; font-size: 0.8rem; margin-top: 10px;">Premium Men's Collection | Chattogram</p>
+        <p style="color: var(--gold); margin-bottom: 10px;">Al-Wafa's Lifestyle</p>
+        <p>Premium Men's Clothing Store</p>
+        <p>&copy; 2026 | All Rights Reserved</p>
     </footer>
 
     <script>
         lucide.createIcons();
 
-        function orderNow() {
-            const num = "8801631667055";
-            const name = document.getElementById('name').value;
-            const phn = document.getElementById('phone').value;
-            const adr = document.getElementById('address').value;
-            const size = document.getElementById('size').value;
+        function sendOrder() {
+            const waNumber = "8801631667055";
+            const product = document.getElementById('prodSelect').value;
+            const name = document.getElementById('custName').value;
+            const phone = document.getElementById('custPhone').value;
+            const address = document.getElementById('custAddr').value;
+            const size = document.getElementById('custSize').value;
 
-            if(!name || !phn || !adr) {
-                alert("Please fill all details!");
+            if(!name || !phone || !address) {
+                alert("Please fill in all details to proceed.");
                 return;
             }
 
-            const text = *NEW ORDER ALERT*%0A%0A +
-                         *Product:* Q/S by Oliver%0A +
-                         *Customer:* ${name}%0A +
-                         *Phone:* ${phn}%0A +
-                         *Address:* ${adr}%0A +
-                         *Size:* ${size}%0A +
-                         *Price:* 1500/-;
+            const message = *NEW ORDER CONFIRMED*%0A%0A +
+                            *Product:* ${product}%0A +
+                            *Customer:* ${name}%0A +
+                            *Phone:* ${phone}%0A +
+                            *Address:* ${address}%0A +
+                            *Size:* ${size}%0A%0A +
+                            _Sent from Al-Wafa's Website_;
 
-            window.open(https://wa.me/${num}?text=${text}, '_blank');
+            window.open(https://wa.me/${waNumber}?text=${message}, '_blank');
         }
     </script>
 </body>
-</html>
+</htm
