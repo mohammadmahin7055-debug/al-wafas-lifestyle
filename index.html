@@ -6,65 +6,67 @@
     <title>Al-Wafa's Lifestyle | Premium Men's Wear</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background-color: #f4f4f4; color: #333; }
-        .header { background: #000; color: #fff; text-align: center; padding: 40px 20px; }
-        .logo-container { margin-bottom: 15px; }
-        .logo { width: 100px; height: 100px; border-radius: 50%; border: 3px solid #fff; animation: pulse 2s infinite; }
-        @keyframes pulse { 0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,255,255,0.7); } 70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(255,255,255,0); } 100% { transform: scale(1); } }
+        :root { --gold: #D4AF37; --black: #000000; --dark-grey: #1a1a1a; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: var(--black); color: white; }
+        
+        .header { background: linear-gradient(135deg, #000, #1a1a1a); border-bottom: 2px solid var(--gold); text-align: center; padding: 50px 20px; animation: fadeIn 1.5s ease-in; }
+        .logo { width: 120px; height: 120px; border-radius: 50%; border: 3px solid var(--gold); margin-bottom: 15px; box-shadow: 0 0 20px var(--gold); }
+        h1 { color: var(--gold); font-size: 2.5rem; letter-spacing: 2px; }
+        .tagline { color: #ccc; font-size: 0.9rem; margin-top: 5px; }
+
         .container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 40px; max-width: 1200px; margin: 0 auto; }
-        .product-card { background: #fff; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: 0.3s; }
-        .product-card:hover { transform: translateY(-10px); }
-        .product-card img { width: 100%; height: 350px; object-fit: cover; }
+        .product-card { background: var(--dark-grey); border: 1px solid #333; border-radius: 15px; overflow: hidden; transition: 0.4s; position: relative; animation: slideUp 1s ease-out; }
+        .product-card:hover { border-color: var(--gold); transform: translateY(-10px); box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2); }
+        .product-card img { width: 100%; height: 380px; object-fit: cover; }
+        
         .details { padding: 20px; text-align: center; }
-        .product-name { font-size: 1.2rem; margin-bottom: 10px; color: #222; }
-        .price { font-size: 1.4rem; font-weight: bold; color: #e67e22; margin-bottom: 20px; }
-        .buy-btn { background: #25d366; color: #fff; text-decoration: none; padding: 12px 25px; border-radius: 25px; font-weight: bold; display: inline-block; transition: 0.3s; }
-        .buy-btn:hover { background: #128c7e; transform: scale(1.05); }
-        .whatsapp-btn { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: #fff; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 1000; transition: 0.3s; }
-        .whatsapp-btn:hover { transform: rotate(360deg) scale(1.2); }
+        .product-name { color: var(--gold); font-size: 1.3rem; margin-bottom: 10px; }
+        .price { font-size: 1.5rem; font-weight: bold; margin-bottom: 15px; }
+        
+        .order-btn { background: var(--gold); color: black; text-decoration: none; padding: 12px 20px; border-radius: 5px; font-weight: bold; display: block; transition: 0.3s; }
+        .order-btn:hover { background: white; transform: scale(1.05); }
+
+        .shop-info { background: #111; border-top: 2px solid var(--gold); padding: 40px 20px; text-align: center; margin-top: 50px; }
+        .shop-info h2 { color: var(--gold); margin-bottom: 15px; }
+        .shop-info p { color: #bbb; line-height: 1.6; }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideUp { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
     </style>
 </head>
 <body>
 
     <div class="header">
-        <div class="logo-container">
-            <img src="https://i.ibb.co/Jjk98Fmf/1000042745.jpg" class="logo" alt="Al-Wafa's Logo">
-        </div>
+        <img src="https://i.ibb.co/Jjk98Fmf/1000042745.jpg" class="logo" alt="Logo">
         <h1>Al-Wafa's Lifestyle</h1>
-        <p class="tagline">PREMIUM MEN'S FASHION</p>
+        <p class="tagline">EXCELLENCE IN EVERY STITCH</p>
     </div>
 
     <div class="container">
         <div class="product-card">
-            <img src="https://i.postimg.cc/LXSKt6XL/1766236115652-2.jpg" alt="Special Collection">
+            <img src="PASTE_YOUR_DIRECT_LINK_HERE" alt="Q/S By Oliver">
             <div class="details">
-                <h3 class="product-name">Al-Wafa Special Collection</h3>
+                <h3 class="product-name">Q/S By Oliver</h3>
                 <p class="price">৳ ১,৫০০</p>
-                <a href="https://wa.me/8801631667055?text=I+want+to+order+Special+Collection+Price+1500tk" class="buy-btn" target="_blank">ORDER VIA WHATSAPP</a>
+                <p style="font-size: 0.8rem; color: #888; margin-bottom: 10px;">To Order, Send: Name, Number, Size, Quantity, Address (Cash on Delivery)</p>
+                <a href="https://wa.me/8801631667055?text=Order+Details:%0AProduct:+Q/S+By+Oliver%0APrice:+1500tk%0AName:%0ANumber:%0ASize:%0AQuantity:%0AAddress:%0APayment:+Cash+on+Delivery" class="order-btn" target="_blank">ORDER VIA WHATSAPP</a>
             </div>
         </div>
 
-        <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1624623278313-a930126a11c3?auto=format&fit=crop&q=80&w=400" alt="Festive Panjabi">
-            <div class="details">
-                <h3 class="product-name">Exclusive Festive Panjabi</h3>
-                <p class="price">৳ ১,৯৫০</p>
-                <a href="https://wa.me/8801631667055?text=I+want+to+order+Festive+Panjabi" class="buy-btn" target="_blank">ORDER VIA WHATSAPP</a>
-            </div>
         </div>
 
-        <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1581655353564-df123a1eb820?auto=format&fit=crop&q=80&w=400" alt="Polo Shirt">
-            <div class="details">
-                <h3 class="product-name">Slim Fit Polo T-shirt</h3>
-                <p class="price">৳ ৮৫০</p>
-                <a href="https://wa.me/8801631667055?text=I+want+to+order+Polo+Tshirt" class="buy-btn" target="_blank">ORDER VIA WHATSAPP</a>
-            </div>
-        </div>
+    <div class="shop-info">
+        <h2>OUR SHOP ADDRESS</h2>
+        <p>
+            <strong>Al-Wafa's Lifestyle</strong><br>
+            [Apnar Shop Er Thikana Eikhane Likhun]<br>
+            Dhaka, Bangladesh<br>
+            Phone: +880 1631-667055
+        </p>
     </div>
 
-    <a href="https://wa.me/8801631667055" class="whatsapp-btn" target="_blank">
+    <a href="https://wa.me/8801631667055" style="position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; z-index: 1000;">
         <i class="fab fa-whatsapp"></i>
     </a>
 
