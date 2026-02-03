@@ -3,72 +3,173 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Al-Wafa's Lifestyle | Premium Men's Wear</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Al-Wafa’s Lifestyle | Men's Collection</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        :root { --gold: #D4AF37; --black: #000000; --dark-grey: #1a1a1a; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-        body { background-color: var(--black); color: white; }
-        
-        .header { background: linear-gradient(135deg, #000, #1a1a1a); border-bottom: 2px solid var(--gold); text-align: center; padding: 50px 20px; animation: fadeIn 1.5s ease-in; }
-        .logo { width: 120px; height: 120px; border-radius: 50%; border: 3px solid var(--gold); margin-bottom: 15px; box-shadow: 0 0 20px var(--gold); }
-        h1 { color: var(--gold); font-size: 2.5rem; letter-spacing: 2px; }
-        .tagline { color: #ccc; font-size: 0.9rem; margin-top: 5px; }
+        :root {
+            --gold: #D4AF37;
+            --black: #000000;
+            --dark-grey: #1a1a1a;
+            --white: #ffffff;
+        }
 
-        .container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 40px; max-width: 1200px; margin: 0 auto; }
-        .product-card { background: var(--dark-grey); border: 1px solid #333; border-radius: 15px; overflow: hidden; transition: 0.4s; position: relative; animation: slideUp 1s ease-out; }
-        .product-card:hover { border-color: var(--gold); transform: translateY(-10px); box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2); }
-        .product-card img { width: 100%; height: 380px; object-fit: cover; }
-        
-        .details { padding: 20px; text-align: center; }
-        .product-name { color: var(--gold); font-size: 1.3rem; margin-bottom: 10px; }
-        .price { font-size: 1.5rem; font-weight: bold; margin-bottom: 15px; }
-        
-        .order-btn { background: var(--gold); color: black; text-decoration: none; padding: 12px 20px; border-radius: 5px; font-weight: bold; display: block; transition: 0.3s; }
-        .order-btn:hover { background: white; transform: scale(1.05); }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: var(--black); color: var(--white); scroll-behavior: smooth; }
 
-        .shop-info { background: #111; border-top: 2px solid var(--gold); padding: 40px 20px; text-align: center; margin-top: 50px; }
-        .shop-info h2 { color: var(--gold); margin-bottom: 15px; }
-        .shop-info p { color: #bbb; line-height: 1.6; }
+        /* Navbar */
+        nav {
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0,0,0,0.95);
+            border-bottom: 1px solid var(--gold);
+            position: sticky;
+            top: 0; z-index: 1000;
+        }
 
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes slideUp { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        .brand-name { color: var(--gold); font-size: 1.5rem; font-weight: bold; letter-spacing: 1px; }
+
+        /* Product Section */
+        .section { padding: 60px 5%; text-align: center; }
+        
+        .product-card {
+            background: var(--dark-grey);
+            border: 1px solid var(--gold);
+            max-width: 400px;
+            margin: 20px auto;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: 0.3s;
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+
+        .product-img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-bottom: 1px solid var(--gold);
+        }
+
+        .product-info { padding: 20px; }
+        .product-name { font-size: 1.8rem; color: var(--gold); margin-bottom: 10px; }
+        .price { font-size: 1.4rem; color: #fff; margin-bottom: 20px; }
+
+        /* Order Form */
+        .order-container {
+            max-width: 500px;
+            margin: 40px auto;
+            padding: 30px;
+            background: #111;
+            border-radius: 15px;
+            border: 1px dashed var(--gold);
+        }
+
+        .form-group { margin-bottom: 15px; text-align: left; }
+        label { color: var(--gold); font-size: 0.9rem; }
+        input, select, textarea {
+            width: 100%; padding: 12px; margin-top: 5px;
+            background: #222; border: 1px solid #444; color: white; border-radius: 8px;
+        }
+
+        .btn-order {
+            width: 100%; padding: 15px;
+            background: var(--gold); color: black;
+            border: none; border-radius: 8px;
+            font-size: 1.1rem; font-weight: bold;
+            cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px;
+            transition: 0.3s;
+        }
+
+        .btn-order:hover { background: #b8952d; transform: translateY(-3px); }
+
+        footer { text-align: center; padding: 40px; color: #555; border-top: 1px solid #222; }
+
     </style>
 </head>
 <body>
 
-    <div class="header">
-        <img src="https://i.ibb.co/Jjk98Fmf/1000042745.jpg" class="logo" alt="Logo">
-        <h1>Al-Wafa's Lifestyle</h1>
-        <p class="tagline">EXCELLENCE IN EVERY STITCH</p>
-    </div>
+    <nav>
+        <div class="brand-name">AL-WAFA'S LIFESTYLE</div>
+    </nav>
 
-    <div class="container">
+    <section class="section">
+        <h2 style="color: var(--gold); margin-bottom: 30px;">New Arrival</h2>
+        
         <div class="product-card">
-            <img src="PASTE_YOUR_DIRECT_LINK_HERE" alt="Q/S By Oliver">
-            <div class="details">
-                <h3 class="product-name">Q/S By Oliver</h3>
-                <p class="price">৳ ১,৫০০</p>
-                <p style="font-size: 0.8rem; color: #888; margin-bottom: 10px;">To Order, Send: Name, Number, Size, Quantity, Address (Cash on Delivery)</p>
-                <a href="https://wa.me/8801631667055?text=Order+Details:%0AProduct:+Q/S+By+Oliver%0APrice:+1500tk%0AName:%0ANumber:%0ASize:%0AQuantity:%0AAddress:%0APayment:+Cash+on+Delivery" class="order-btn" target="_blank">ORDER VIA WHATSAPP</a>
+            <img src="https://ibb.co.com/rKwcrN0s" alt="Q/S by Oliver" class="product-img" onerror="this.src='https://via.placeholder.com/400x500/000000/D4AF37?text=Q/S+by+Oliver'">
+            <div class="product-info">
+                <h3 class="product-name">Q/S by Oliver</h3>
+                <p class="price">Price: 1500/- Taka</p>
+                <p style="color: #aaa; font-size: 0.9rem; margin-bottom: 15px;">Premium Quality Men's Clothing</p>
             </div>
         </div>
 
+        <div class="order-container" id="order">
+            <h3 style="color: var(--gold); margin-bottom: 20px;">Order Details</h3>
+            <div class="form-group">
+                <label>Customer Name</label>
+                <input type="text" id="custName" placeholder="Enter your name">
+            </div>
+            <div class="form-group">
+                <label>Mobile Number</label>
+                <input type="tel" id="custPhone" placeholder="Enter phone number">
+            </div>
+            <div class="form-group">
+                <label>Delivery Address</label>
+                <textarea id="custAddr" rows="3" placeholder="Full address"></textarea>
+            </div>
+            <div class="form-group">
+                <label>Select Size</label>
+                <select id="custSize">
+                    <option value="M">Medium (M)</option>
+                    <option value="L">Large (L)</option>
+                    <option value="XL">Extra Large (XL)</option>
+                    <option value="XXL">XXL</option>
+                </select>
+            </div>
+            <button class="btn-order" onclick="placeOrder()">
+                <i data-lucide="shopping-cart"></i> Order via WhatsApp
+            </button>
         </div>
+    </section>
 
-    <div class="shop-info">
-        <h2>OUR SHOP ADDRESS</h2>
-        <p>
-            <strong>Al-Wafa's Lifestyle</strong><br>
-            [Apnar Shop Er Thikana Eikhane Likhun]<br>
-            Dhaka, Bangladesh<br>
-            Phone: +880 1631-667055
-        </p>
-    </div>
+    <footer>
+        <p>Location: Agrabad, Southland Centre (3rd Floor), Chattogram.</p>
+        <p style="margin-top: 10px;">&copy; 2026 Al-Wafa's Lifestyle</p>
+    </footer>
 
-    <a href="https://wa.me/8801631667055" style="position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; z-index: 1000;">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+    <script>
+        lucide.createIcons();
 
+        function placeOrder() {
+            const myNumber = "8801631667055"; // Apnar Number Updated
+            const productName = "Q/S by Oliver";
+            const price = "1500/- Taka";
+            
+            const name = document.getElementById('custName').value;
+            const phone = document.getElementById('custPhone').value;
+            const address = document.getElementById('custAddr').value;
+            const size = document.getElementById('custSize').value;
+
+            if(!name || !phone || !address) {
+                alert("Doya kore shob details puron korun.");
+                return;
+            }
+
+            const message = *New Order Confirmed!*%0A%0A +
+                            *Product:* ${productName}%0A +
+                            *Price:* ${price}%0A +
+                            *Customer:* ${name}%0A +
+                            *Mobile:* ${phone}%0A +
+                            *Address:* ${address}%0A +
+                            *Size:* ${size}%0A%0A +
+                            _Al-Wafa's Lifestyle Website_;
+
+            window.open(https://wa.me/${myNumber}?text=${message}, '_blank');
+        }
+    </script>
 </body>
 </html>
