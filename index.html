@@ -1,3 +1,5 @@
+5:30 AM
+You sent
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -146,6 +148,7 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
+            text-decoration: none; /* added for anchor look */
         }
 
         footer {
@@ -199,14 +202,14 @@
             </select>
 
             <input type="text" id="custName" class="form-input" placeholder="Your Full Name">
-            <input type="tel" id="custPhone" class="form-input" placeholder="WhatsApp Number">
+            <input type="tel" id="custPhone" class="form-input" placeholder="Your Phone Number">
             <textarea id="custAddr" class="form-input" rows="3" placeholder="Full Delivery Address"></textarea>
             
             <select id="custSize" class="form-input">
-                <option>Size: M</option>
-                <option>Size: L</option>
-                <option>Size: XL</option>
-                <option>Size: XXL</option>
+                <option value="M">Size: M</option>
+                <option value="L">Size: L</option>
+                <option value="XL">Size: XL</option>
+                <option value="XXL">Size: XXL</option>
             </select>
 
             <button class="order-btn" onclick="sendOrder()">
@@ -225,7 +228,9 @@
         lucide.createIcons();
 
         function sendOrder() {
+            // Updated phone number with country code
             const waNumber = "8801631667055";
+            
             const product = document.getElementById('prodSelect').value;
             const name = document.getElementById('custName').value;
             const phone = document.getElementById('custPhone').value;
@@ -237,16 +242,24 @@
                 return;
             }
 
-            const message = *NEW ORDER CONFIRMED*%0A%0A +
-                            *Product:* ${product}%0A +
-                            *Customer:* ${name}%0A +
-                            *Phone:* ${phone}%0A +
-                            *Address:* ${address}%0A +
-                            *Size:* ${size}%0A%0A +
-                            _Sent from Al-Wafa's Website_;
+            // Creating the message
+            const message = "NEW ORDER CONFIRMED" + "\n\n" +
+                            "Product: " + product + "\n" +
+                            "Customer: " + name + "\n" +
+                            "Phone: " + phone + "\n" +
+                            "Address: " + address + "\n" +
+                            "Size: " + size + "\n\n" +
+                            "Sent from Al-Wafa's Website";
 
-            window.open(https://wa.me/${waNumber}?text=${message}, '_blank');
+            // Encoding the message for URL
+            const encodedMessage = encodeURIComponent(message);
+            
+            // Constructing the final WhatsApp URL
+            const whatsappUrl = "https://wa.me/" + waNumber + "?text=" + encodedMessage;
+
+            // Directing to WhatsApp
+            window.location.href = whatsappUrl;
         }
     </script>
 </body>
-</htm
+</html>
